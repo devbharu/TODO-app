@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoapp</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    </script>
+    <script>
+          
+       async function signup(){
+        const username=document.getElementById('signup').value;
+          const password=document.getElementById('signin').value;
+
+
+          const response =await fetch("");
+          
+     //  await axios.post("http://localhost:3000/signup",{
+        //    username:username,
+         //   password:password
+
+       // })
+alert("you are signed in")
+
+       }
+
+
+       async function signin(){
+        const username=document.getElementById('signup').value;
+          const password=document.getElementById('signin').value;
+        const response= await axios.post("http://localhost:3000/signin",{
+
+            username:username,
+            password:password
+        })
+
+       localStorage.setItem("token",response.data.token);
+        alert('you are signed in')
+
+       }
+
+
+       async function me()
+       {
+          
+           
+        const response =await axios.get("http://localhost:3000/me",{
+            headers:{
+                token:localStorage.getItem("token")
+            }
+        })
+        console.log("data recived");
+         document.getElementById("info").innerHTML=response.data.username;
+       }
+
+
+       function logout(){
+         localStorage.clear("token");
+           alert("you are logged out");
+
+       }
+    </script>
+</head>
+<body>
+
+    <div>
+
+        <b>
+           Username
+        </b>
+        <input id="signup" placeholer="Enter Username" type="text"/>
+        <button onclick="signup()">signup</button>
+        <br/>
+
+        <b>
+            Password
+        </b>
+        <input id="signin" placeholer="Password" type="Password"/>
+
+      <button onclick="signin()">signin</button>
+<div id="info"></div>
+      <button onclick="me()">info</button>
+      <button onclick="logout()">logout</button>
+    </div>
+    
+</body>
+</html>
