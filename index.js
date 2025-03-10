@@ -3,14 +3,7 @@ const jwt = require('jsonwebtoken')
 JWT_SECRET="Greenmacha";
 app=express()
 app.use(express.json())
-/*
-app.get("/",function(req,res){
-
-    res.sendFile("/Users/bharaths/Desktop/TEST/index.html")
-        
-   
  
-})*/
  app.get("/",function(req,res){
     res.sendFile("/Users/bharaths/Desktop/shiva/auth/index.html")
  })
