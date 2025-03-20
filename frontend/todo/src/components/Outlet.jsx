@@ -45,7 +45,7 @@ const name="WELCOME TO TODO APP";
                     key={index}
                      initial={{y:100,opacity:0}}
                     animate={{y:-100,opacity:1}}
-                    transition={{delay:0.1*index}}
+                    transition={{duration:0.8,delay:0.1*index}}
                     >
                         {char}
                              

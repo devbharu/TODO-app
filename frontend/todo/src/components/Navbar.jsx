@@ -8,7 +8,7 @@ export default function Navbar(){
 
     const [tog,settog] =useState(false);
 
-return <motion.div className=" bg-gradient-to-l from-gray-400 to-gray-200    py-6  text-xl   flex justify-between  h-[10vh]" 
+return <motion.div className=" bg-gradient-to-l from-gray-400 to-gray-200   py-6  text-xl   flex justify-between  h-[10vh]" 
 
 
 initial={{x:-100,opacity:0}}
