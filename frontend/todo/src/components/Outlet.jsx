@@ -37,10 +37,10 @@ let updatedTodos=[...todos];
 
  return (<>
  
- <div className='   text-black flex justify-center h-screen  '>
+ <div className='   text-black flex justify-center items-center h-screen  '>
 
-        <div className=' my-14  h-1/2 w-1/2   '>
-                <div className="  text-4xl  text-center font-serif font-bold ">
+        <div className='absolute   my-14  h-1/2 w-1/2   '>
+                <div className="  relative  text-4xl bottom-35  text-center font-serif font-bold ">
                       WELCOME TO TODO APP   
                 </div> 
 
@@ -51,7 +51,7 @@ let updatedTodos=[...todos];
                             }}   placeholder="enter a new task"></input>
 
                             <button className=' backdrop-blur-md border text-xl hover:text-white rounded-lg bg-blue-200 hover:bg-blue-600 px-4 py-2  hover:shadow-md  ' onKeyDown={addTodo} onClick={addTodo}>
-                                add todo
+                                Add todo
                             </button>
                             
                             
@@ -82,7 +82,7 @@ function Card({todos, toggleTodo,removeTodo}){
     <div>
                <ul>
                         {todos.map((todo, index) => (
-                                <div className="translate-x-25 ">
+                                <div className="translate-x-5 ">
                                      
                                <li key={index} className=" flex flex-row m-6 " >
                                     <input type='checkbox'  checked={ todo.completed} onChange={()=>toggleTodo(index)} readOnly className="  -my-1 size-6 translate-y-2 mx-2"  ></input>
@@ -103,7 +103,7 @@ function Card({todos, toggleTodo,removeTodo}){
 
 
                                      <div className="border rounded-md hover:bg-red-400 bg-red-200 text-xl hover:text-white px-4 py-2  fixed translate-x-150  " onClick={()=>removeTodo(index)}>
-                                             remove
+                                             Remove
                                      </div>
                                 </li>
 
