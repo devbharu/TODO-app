@@ -18,26 +18,26 @@ duration={{duration:4}}
 >
      
      <motion.h1 
-      className="text-3xl hover:text-blue-600 font-bold"
+      className="text-3xl hover:text-black mx-4 font-serif font-bold animate-pulse"
       initial={{ x:-100 ,opacity: 0 ,scale:0}}
       animate={{ x:0,opacity: 1 ,scale:1}}
       transition={{ duration: 1 }} // 1 second fade-in
     >
-      Welcome
+     <Link to='/'>  Welcome</Link> 
     </motion.h1>
     <motion.h1 
-      className="text-3xl hover:text-blue-600 font-bold"
+      className="text-3xl hover:text-black font-bold"
       initial={{ y:-100 ,opacity: 0 }}
       animate={{ y:0,opacity: 1 }}
       transition={{ duration: 1 }} // 1 second fade-in
     >
-     Home
+    <Link to='/home'>Home </Link> 
     </motion.h1>
      
      
      <div className='flex gap-4'>
      <motion.h1 
-      className="text-3xl  hover:text-blue-600 font-bold"
+      className="text-3xl  hover:text-black font-bold"
       initial={{ x:100 ,opacity: 0,scale:0 }}
       animate={{ x:0,opacity: 0.5,scale:1 }}
       transition={{ duration: 1 }}  
@@ -46,7 +46,7 @@ duration={{duration:4}}
     </motion.h1>
 
     <motion.h1 
-      className="text-3xl hover:text-blue-400 font-bold mx-3"
+      className="text-3xl hover:text-black font-bold mx-3"
       initial={{ x:100,opacity: 0,scale:0 }}
       animate={{ x:0,opacity: 0.5,scale:1 }}
       transition={{ duration: 1 }}  
