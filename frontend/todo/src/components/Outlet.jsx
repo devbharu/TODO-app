@@ -1,8 +1,8 @@
 import { useState,useRef } from "react"
-
+import {motion} from 'framer-motion'
 
 export default function Outlet(){
-const [todos,setTodo]=useState([{des:"hi there",completed:false,}]);
+const [todos,setTodo]=useState([{des:"Maths",completed:false,}]);
 const [des,setdes] =useState('');
   
 
@@ -32,17 +32,26 @@ let updatedTodos=[...todos];
 }
 
 
-
+const name="WELCOME TO TODO APP";
 
 
  return (<>
  
- <div className='   text-black flex justify-center items-center h-screen  '>
+ <div className=' text-center  text-black flex justify-center items-center h-screen  '>
 
         <div className='absolute   my-14  h-1/2 w-1/2   '>
-                <div className="  relative  text-4xl bottom-35  text-center font-serif font-bold ">
-                      WELCOME TO TODO APP   
-                </div> 
+                {name.split("").map((char,index)=>(
+                    <motion.span className="   relative  text-4xl bottom-35  text-center font-serif font-bold "
+                    key={index}
+                     initial={{y:100,opacity:0}}
+                    animate={{y:-100,opacity:1}}
+                    transition={{delay:0.1*index}}
+                    >
+                        {char}
+                             
+                    </motion.span>
+                ))
+               }
 
                     <div className="flex justify-center m-6">
                             <input className="text-xl border rounded-lg p-2  mx-6 " type='text' onChange={(e)=>{
