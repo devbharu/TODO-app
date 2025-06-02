@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
-    <div className=" relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue to-blue-600 text-black px-4 sm:px-6">
+    <div className="   min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue to-blue-600 text-black px-4 sm:px-6">
       {/* Heading Section */}
       <motion.div
         className="text-center mb-12"
-        initial={{ y: 100, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <h1 className="  absolute top-10 left-0 right-0 text-3xl sm:text-5xl font-extrabold">
+        <h1 className="   -translate-y-30 text-3xl sm:text-5xl font-extrabold">
           Welcome to <span className="text-blue-700 font-WDXL">DEV BHARU's</span><br></br> Todo App
         </h1>
       </motion.div>
@@ -44,8 +44,8 @@ function FeatureCard({ title, description, videoUrl, delay }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 25 }}
-      transition={{ duration: 0.8, delay }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay }}
       className="font-serif bg-white text-black rounded-lg px-6 sm:px-8 py-6 text-center shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition duration-300 w-80 h-[300px] flex flex-col justify-between"
     >
       <div>
