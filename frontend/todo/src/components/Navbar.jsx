@@ -31,7 +31,7 @@ duration={{duration:4}}
       animate={{ y:0,opacity: 1 }}
       transition={{ duration: 1 }} // 1 second fade-in
     >
-    <Link to='/home'>Home </Link> 
+    <Link to='/home'> TODO </Link> 
     </motion.h1>
      
      
