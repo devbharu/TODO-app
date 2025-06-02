@@ -1,1 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Exile&family=WDXL+Lubrifont+TC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exile&family=Limelight&family=WDXL+Lubrifont+TC&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+    --font-WDXL: "LimeLight", sans-serif; 
+  }

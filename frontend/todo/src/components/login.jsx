@@ -6,7 +6,7 @@ export default function Login(){
         <div className=" flex relative bottom-25   justify-center  items-center px-16  py-10   border rounded-lg hover:shadow-lg text-xl bg-gradient-to-br from-gray to-gray-600 text-black   w-lg  h-[60]vh  ">
           <div className="text-center flex-col  ">
                     <div className="font-bold text-2xl" >
-                    Login
+                          Login
                     </div>
  
 
