@@ -37,7 +37,7 @@ const name="WELCOME TO TODO APP";
 
  return (<>
  
- <div className=' text-center  text-black flex justify-center items-center h-screen  '>
+ <div className=' text-center  text-black flex justify-center items-center   h-screen  '>
 
         <div className='absolute   my-14  h-1/2 w-1/2   '>
                 {name.split("").map((char,index)=>(
@@ -57,7 +57,7 @@ const name="WELCOME TO TODO APP";
                             <input className="text-xl border rounded-lg p-2  mx-6 " type='text' onChange={(e)=>{
                                 e.preventDefault();
                             setdes(e.target.value)
-                            }}   placeholder="enter a new task"></input>
+                            }}  onKeyDownCapture={()=>(e.target.value="")} placeholder="enter a new task"></input>
 
                             <button className=' backdrop-blur-md border text-xl hover:text-white rounded-lg bg-blue-200 hover:bg-blue-600 px-4 py-2  hover:shadow-md  ' onKeyDown={addTodo} onClick={addTodo}>
                                 Add todo
