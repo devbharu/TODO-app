@@ -26,7 +26,7 @@ duration={{duration:4}}
      {token && <Link to='/'>  Welcome</Link>} 
     </motion.h1>
     <motion.h1 
-      className="text-3xl hover:text-black font-bold"
+      className="text-3xl -translate-x-19 hover:text-black font-bold"
       initial={{ y:-100 ,opacity: 0 }}
       animate={{ y:0,opacity: 1 }}
       transition={{ duration: 1 }} // 1 second fade-in
