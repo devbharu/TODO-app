@@ -9,12 +9,12 @@ import Signup from './components/signup'
 import Welcome from './components/welcome'
 function App() {
   const [count, setCount] = useState(0)
-
+  const token = localStorage.getItem("token");
   return (
     <>
      <div  >
     
-     <Navbar/>
+     <Navbar token={token}/>
         <Routes>
         <Route path='/' element={<Welcome/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />

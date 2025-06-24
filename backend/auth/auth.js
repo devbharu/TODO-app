@@ -33,8 +33,8 @@ router.post("/signup",async function(req, res) {
     
 })
 
-router.get('/signin',async (req,res)=>{
-      const username = req.body.username;
+router.post('/signin/:username',async (req,res)=>{
+      const username = req.params.username;
 
       const user = await User.findOne({
         username

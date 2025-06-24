@@ -3,9 +3,9 @@ import { useState } from 'react'
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
 
-export default function Navbar(){
+export default function Navbar({token}){
 
-
+    
     const [tog,settog] =useState(false);
 
 return <motion.div className=" bg-gradient-to-l from-blue-400 to-blue-200   py-6  text-xl   flex justify-between  h-[10vh]" 
@@ -23,7 +23,7 @@ duration={{duration:4}}
       animate={{ x:0,opacity: 1 ,scale:1}}
       transition={{ duration: 1 }} // 1 second fade-in
     >
-     <Link to='/'>  Welcome</Link> 
+     {token && <Link to='/'>  Welcome</Link>} 
     </motion.h1>
     <motion.h1 
       className="text-3xl hover:text-black font-bold"
@@ -31,7 +31,7 @@ duration={{duration:4}}
       animate={{ y:0,opacity: 1 }}
       transition={{ duration: 1 }} // 1 second fade-in
     >
-    <Link to='/home'> TODO </Link> 
+   { token && <Link to='/home'> TODO </Link> }
     </motion.h1>
      
      
@@ -42,7 +42,7 @@ duration={{duration:4}}
       animate={{ x:0,opacity: 0.5,scale:1 }}
       transition={{ duration: 1 }}  
     >
-      <Link to='/login'> Login   </Link> 
+      {!token && <Link to='/login'> Login   </Link> }
     </motion.h1>
 
     <motion.h1 
@@ -53,9 +53,9 @@ duration={{duration:4}}
       whileHover={{scale:1.2}}
      
     >
-      <Link  to='/signup'>
+      {!token &&<Link  to='/signup'>
       Sign up
-      </Link>
+      </Link>}
     </motion.h1>
      </div>
 </motion.div>

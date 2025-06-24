@@ -50,8 +50,8 @@ router.post('/uptodo',usermiddleware,async (req,res)=>{
        
 })
 
-router.get('/gettodo',usermiddleware,async (req,res)=>{
-       const {username} = req.body;
+router.get('/gettodo/:username',usermiddleware,async (req,res)=>{
+       const {username} = req.params;
     try{
 
            

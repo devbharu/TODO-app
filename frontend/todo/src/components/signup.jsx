@@ -1,56 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+
 export default function Signup() {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-   const [arr,setarr]  = useState([]);  
-  
+   const navigate = useNavigate()
      async function pushdata(){
-        console.log(nameRef.current.value);
-        console.log(emailRef.current.value);
-        console.log(passwordRef.current.value);
+         
+
          const username = nameRef.current.value;
          const email = emailRef.current.value
          const password = passwordRef.current.value;
 
-        const data  =  await axios.post('http://localhost:3009/signup',{
+        const data  =  await axios.post('http://localhost:4001/api/auth/signup',{
            username,
            email,
            password
 
         })
-           
+           if(data){
+            toast.success(" you are signed up",{
+              onClose:()=>navigate("/login")
+            });
             
-         
-
-         console.log(`${data} this the data came`);
-           
-
-
+           }else{
+            toast.error(" you are signed up");
+           }
 
      }
 
-       async function fetchdata(){
-              const response = axios.get("http://localhost:3010/getdata");
-              setarr(response.data);
-       }
-
-
-     useEffect(function(){
-
-      fetchdata();
-
-
-     },[])
-
-
-
-
-
-
-
+       
   return (
     <div className="flex justify-center items-center bg-gradient-to-br from-blue-200 to-blue-600 h-screen text-black">
       <motion.div
@@ -89,20 +73,8 @@ export default function Signup() {
           <button onClick={pushdata} className="font-bold px-6 py-2 my-6 hover:bg-white hover:text-black bg-red-300 border rounded-lg">
             Sign up
           </button>
-           
-
-          {Array.isArray(arr) && arr.map((data, index) => (
-  <li key={index}>
-    {data.username} — {data.email}
-  </li>
-))}
-
-
-
-
-
-
-
+            <ToastContainer position="top-right" autoClose={1000}/>
+ 
         </div>
       </motion.div>
     </div>

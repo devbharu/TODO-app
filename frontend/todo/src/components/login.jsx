@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
@@ -8,8 +9,7 @@ export default function Login() {
   const pass = useRef(null);
   const navigate = useNavigate();
 
-  const validUsername = "bharath";
-  const validPassword = "hello";
+   
 
   async function getdata() {
     const username = name.current.value;
@@ -17,11 +17,20 @@ export default function Login() {
 
     console.log(username);
     console.log(password);
+     
+         
+    const response = await axios.post(`http://localhost:4001/api/auth/signin/${username}`)
+     const token = response.data.token;
 
-    if (username === validUsername && password === validPassword) {
-      toast.success("You are signed in!");
+    localStorage.setItem("token",token);
+    localStorage.setItem("username",username);
+      
+    if (token) {
+      toast.success("You are signed in!",{
+        onClose:()=>(navigate("/home"))
+      });
           
-         navigate("/home");
+         
     } else {
       toast.error("Invalid username or password");
     }
@@ -32,7 +41,7 @@ export default function Login() {
       <div className="flex flex-col justify-center items-center px-16 py-10 border rounded-lg hover:shadow-lg text-xl bg-gradient-to-br from-white to-blue-100 text-blue-900 w-[400px] h-[60vh]">
         <div className="font-bold text-2xl mb-4">Login</div>
 
-        <div className="w-full text-start">Email</div>
+        <div className="w-full text-start">Username</div>
         <input
           type="text"
           ref={name}

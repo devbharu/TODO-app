@@ -14,6 +14,8 @@ export default function LandingPage() {
     pause: isHovered,
       
   });
+  
+   
 
   const cards = [
     {
