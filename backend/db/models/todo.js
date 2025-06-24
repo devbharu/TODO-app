@@ -24,4 +24,4 @@ todo:{
 
 const Todo = mongoose.model("Todo",todoSchema);
 
-module.export=Todo;
+export default Todo;

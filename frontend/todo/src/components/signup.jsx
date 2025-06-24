@@ -1,10 +1,55 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import axios from 'axios';
 export default function Signup() {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+   const [arr,setarr]  = useState([]);  
+  
+     async function pushdata(){
+        console.log(nameRef.current.value);
+        console.log(emailRef.current.value);
+        console.log(passwordRef.current.value);
+         const username = nameRef.current.value;
+         const email = emailRef.current.value
+         const password = passwordRef.current.value;
+
+        const data  =  await axios.post('http://localhost:3009/signup',{
+           username,
+           email,
+           password
+
+        })
+           
+            
+         
+
+         console.log(`${data} this the data came`);
+           
+
+
+
+     }
+
+       async function fetchdata(){
+              const response = axios.get("http://localhost:3010/getdata");
+              setarr(response.data);
+       }
+
+
+     useEffect(function(){
+
+      fetchdata();
+
+
+     },[])
+
+
+
+
+
+
 
   return (
     <div className="flex justify-center items-center bg-gradient-to-br from-blue-200 to-blue-600 h-screen text-black">
@@ -36,15 +81,28 @@ export default function Signup() {
             type="password"
             className="border rounded-md m-4 py-2 px-4 w-full"
             ref={passwordRef}
-            onChange={(e) => {
-              passwordRef.current.value = e.target.value;
-              console.log(passwordRef.current.value);
-            }}
+             
           />
 
-          <button className="font-bold px-6 py-2 my-6 hover:bg-white hover:text-black bg-red-300 border rounded-lg">
+
+
+          <button onClick={pushdata} className="font-bold px-6 py-2 my-6 hover:bg-white hover:text-black bg-red-300 border rounded-lg">
             Sign up
           </button>
+           
+
+          {Array.isArray(arr) && arr.map((data, index) => (
+  <li key={index}>
+    {data.username} — {data.email}
+  </li>
+))}
+
+
+
+
+
+
+
         </div>
       </motion.div>
     </div>
