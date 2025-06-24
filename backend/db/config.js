@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 
 
     try{
-        await mongoose.connect("mongodb+srv://devbharu04:SpBnLVyneW7951fg@cluster0.eq1cq.mongodb.net/mama");
+        await mongoose.connect("");//connect yours
         console.log("MONGO  DB CONNECTED");
     }
     catch(e){
